@@ -1,0 +1,52 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*.local
+.local.env
+
+# Build / output
+dist/
+build/
+coverage/
+out/
+release/
+installation/
+storage/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Temp / misc
+*.tmp
+*.bak
+*.swp
+*.pid
+*.seed
+
+# Project-specific
+wasabiUploads/
+uploads/
+tmp/
+*.zip
+
+# Lock files (optional)
+package-lock.json
+frontend/package-lock.json
+# yarn.lock

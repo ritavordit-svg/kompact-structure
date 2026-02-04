@@ -31,7 +31,6 @@ exports.addUserMongodbV2 = (data) => {
                 Employee_LName:  data.lastName,
                 Employee_Email: data.email,
                 Employee_Name:  data.firstName +' '+ data.lastName,
-                Time_Format: "12",
                 isDeleted: false,
                 isActive: true,
                 isOnline: false,

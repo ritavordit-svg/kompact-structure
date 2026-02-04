@@ -29,7 +29,7 @@ const SCHEMA_TYPE = {
     TASKS: "tasks",
     COMMON:"common",
     MAIN_CHATS: "main_chats",
-    GOLBAL : "global",
+    GLOBAL : "global",
     COMMENTS: "comments",
     PROJECT_RULES:"projectRules",
     SUBSCRIPTIONPLAN: "subscriptionPlan",

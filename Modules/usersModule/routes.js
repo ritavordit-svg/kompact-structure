@@ -5,4 +5,5 @@ exports.init = (app) => {
     app.post('/api/v1/userAndCompanyCheck', ctrl.checkUserAndCompany);
     app.get('/api/v1/user/:id', ctrl.getUserById);
     app.post('/api/v1/user/find', ctrl.getUserByQuey);
+    app.put('/api/v1/user/updateFriendNickname', ctrl.updateFriendNickname);
 };

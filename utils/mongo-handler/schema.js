@@ -1,185 +1,185 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const schema = {
     tasks: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
-        'TaskName': {
-            type: String,
-            required: true,
-        },
-        'TaskKey': {
+        TaskName: {
             type: String,
             required: true,
         },
-        'AssigneeUserId': {
+        TaskKey: {
+            type: String,
+            required: true,
+        },
+        AssigneeUserId: {
             type: Array,
             default: [],
             required: false,
         },
-        'watchers': {
+        watchers: {
             type: Array,
             default: [],
             required: false,
         },
-        'DueDate': {
+        DueDate: {
             type: Date,
             required: false,
         },
-        'dueDateDeadLine': {
+        dueDateDeadLine: {
             type: Array,
             default: [],
             required: false,
         },
-        'hiddenForUsers': {
+        hiddenForUsers: {
             type: [String],
-            default: []
+            default: [],
         },
-        'mutedForUsers': {
+        mutedForUsers: {
             type: [String],
-            default: []
+            default: [],
         },
-        'pinnedForUsers': {
+        pinnedForUsers: {
             type: [String],
-            default: []
+            default: [],
         },
-        'TaskType': {
+        TaskType: {
             type: String,
             required: true,
         },
-        'TaskTypeKey': {
+        TaskTypeKey: {
             type: Number,
             required: true,
         },
-        'ParentTaskId': {
+        ParentTaskId: {
             type: String,
             required: false,
         },
-        'ProjectID': {
+        ProjectID: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
-        'CompanyId': {
+        CompanyId: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
-        'status': {
+        status: {
             type: Object,
             required: true,
         },
-        'isParentTask': {
+        isParentTask: {
             type: Boolean,
             required: true,
         },
-        'Task_Leader': {
+        Task_Leader: {
             type: String,
             required: true,
         },
-        'sprintArray': {
+        sprintArray: {
             type: Object,
             required: true,
         },
-        'Task_Priority': {
+        Task_Priority: {
             type: String,
             required: true,
         },
-        'deletedStatusKey': {
+        deletedStatusKey: {
             type: Number,
             required: true,
         },
-        'sprintId': {
+        sprintId: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
-        'groupByAssigneeIndex': {
+        groupByAssigneeIndex: {
             type: Number,
             required: false,
         },
-        'groupByPriorityIndex': {
+        groupByPriorityIndex: {
             type: Number,
             required: false,
         },
-        'groupByDueDateIndex': {
+        groupByDueDateIndex: {
             type: Number,
             required: false,
         },
-        'groupByStatusIndex': {
+        groupByStatusIndex: {
             type: Number,
             required: false,
         },
-        'queueListArray': {
+        queueListArray: {
             type: Array,
             required: false,
         },
-        'attachments': {
+        attachments: {
             type: Array,
             required: false,
         },
-        'checklistArray': {
+        checklistArray: {
             type: Array,
             required: false,
         },
-        'tagsArray': {
+        tagsArray: {
             type: Array,
             required: false,
         },
-        'favouriteTasks': {
+        favouriteTasks: {
             type: Array,
             required: false,
         },
-        'subTasks': {
+        subTasks: {
             type: Number,
             required: false,
         },
-        'rawDescription': {
+        rawDescription: {
             type: String,
             required: false,
         },
-        'description': {
+        description: {
             type: String,
             required: false,
         },
-        'statusType': {
+        statusType: {
             type: String,
             required: true,
         },
-        'startDate': {
+        startDate: {
             type: Date,
             required: false,
         },
-        'statusKey': {
+        statusKey: {
             type: Number,
             required: true,
         },
-        'updateToken': {
+        updateToken: {
             type: Object,
             required: false,
         },
-        'islocalSnapStop': {
+        islocalSnapStop: {
             type: Boolean,
             required: false,
         },
-        'folderObjId': {
+        folderObjId: {
             type: mongoose.Schema.Types.ObjectId,
             required: false,
         },
         descriptionBlock: {
             type: Object,
-            required: false
+            required: false,
         },
         customField: {
             type: Object,
-            required: false
+            required: false,
         },
         lastMessage: {
             type: Date,
-            required: false
+            required: false,
         },
         message: {
             type: String,
-            required: false
-        }
+            required: false,
+        },
     },
     timesheet: {
         LogDescription: {
@@ -261,13 +261,13 @@ const schema = {
     userId: {
         userId: {
             type: String,
-            required: true
+            required: true,
         },
     },
     users: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         Employee_Email: {
             type: String,
@@ -303,104 +303,105 @@ const schema = {
         },
         verificationToken: {
             type: String,
-            required: false
+            required: false,
         },
         verificationTokenTime: {
             type: Date,
-            required: false
+            required: false,
         },
         AssignCompany: {
             type: Array,
-            required: false
+            required: false,
         },
         Employee_profileImage: {
             type: String,
-            required: false
+            required: false,
         },
         Employee_profileImageURL: {
             type: String,
-            required: false
+            required: false,
         },
         webTokens: {
             type: Array,
-            required: false
+            required: false,
         },
         forgotPasswordToken: {
             type: String,
-            required: false
+            required: false,
         },
         forgotPasswordTokenTime: {
             type: Date,
-            required: false
+            required: false,
         },
         lastActive: {
             type: Date,
-            required: false
+            required: false,
         },
         isEmailVerified: {
             type: Boolean,
-            required: true
+            required: true,
         },
         customerId: {
             type: String,
-            required: false
+            required: false,
         },
         customerIds: {
             type: Array,
-            required: false
+            required: false,
         },
         isProductOwner: {
             type: Boolean,
-            required: false
+            required: false,
         },
         isVesionUpdate: {
             type: Boolean,
-            required: false
+            required: false,
         },
         tour: {
             type: Object,
-            required: false
+            required: false,
         },
         languageCode: {
             type: String,
             required: false,
-            default: "en"
+            default: "en",
         },
         noteBlock: {
             type: Object,
-            required: false
+            required: false,
         },
+        friendNicknames: [{ userId: String, nickname: String }],
     },
     notes: {
         userId: {
             type: String,
-            required: true
+            required: true,
         },
         title: {
             type: String,
-            default: ''
+            default: "",
         },
         content: {
             type: Object,
-            default: {}
+            default: {},
         },
         is_pin: {
             type: Boolean,
-            default: false
+            default: false,
         },
         order: {
             type: Number,
-            default: 0
+            default: 0,
         },
         isDeleted: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
     adminDetail: {
         companyName: {
             type: String,
-            required: true
+            required: true,
         },
         address1: {
             type: String,
@@ -425,184 +426,184 @@ const schema = {
         pincode: {
             type: String,
             required: true,
-        }
+        },
     },
     wasabicredentials: {
         accessKeyId: {
             type: String,
-            required: true
+            required: true,
         },
         secretAccessKey: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     ProjectTemplate: {
         AssigneeUserId: {
             type: Array,
-            required: true
+            required: true,
         },
         Description: {
             type: String,
-            required: false
+            required: false,
         },
         LeadUserId: {
             type: Array,
-            required: true
+            required: true,
         },
         ProjectCurrency: {
             type: Map,
-            required: true
+            required: true,
         },
         TaskTypeTemplateId: {
             type: String,
-            required: false
+            required: false,
         },
         TemplateCategory: {
             type: Map,
-            required: false
+            required: false,
         },
         TemplateName: {
             type: String,
-            required: true
+            required: true,
         },
         TemplateRequiredComponent: {
             type: Array,
-            required: true
+            required: true,
         },
         TemplateTaskActiveKey: {
             type: Array,
-            required: false
+            required: false,
         },
         TemplateTaskCloseKey: {
             type: Number,
-            required: false
+            required: false,
         },
         TemplateTaskDoneKey: {
             type: Array,
-            required: false
+            required: false,
         },
         TemplateTaskStatusId: {
             type: String,
-            required: false
+            required: false,
         },
         TemplateTaskType: {
             type: Array,
-            required: true
+            required: true,
         },
         apps: {
             type: Array,
-            required: true
+            required: true,
         },
         projectStatusData: {
             type: Array,
-            required: true
+            required: true,
         },
         taskStatusData: {
             type: Array,
-            required: true
-        }
+            required: true,
+        },
     },
     timeTrackerDownload: {
         downloadUrl: {
             type: String,
-            required: true
+            required: true,
         },
         description: {
             type: String,
-            required: false
+            required: false,
         },
         type: {
             type: String,
-            required: true
+            required: true,
         },
         title: {
             type: String,
-            required: true
+            required: true,
         },
         version: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     companies: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         Cst_City: {
             type: String,
-            required: false
+            required: false,
         },
         Cst_Country: {
             type: String,
-            required: true
+            required: true,
         },
         Cst_CompanyName: {
             type: String,
-            required: true
+            required: true,
         },
         Cst_DialCode: {
             type: Map,
-            required: true
+            required: true,
         },
         Cst_LogTimeDays: {
             type: String,
-            required: true
+            required: true,
         },
         Cst_Phone: {
             type: String,
-            required: true
+            required: true,
         },
         Cst_State: {
             type: String,
-            required: false
+            required: false,
         },
         customerId: {
             type: String,
-            required: false
+            required: false,
         },
         isInactive: {
             type: Boolean,
-            required: false
+            required: false,
         },
         SubcriptionId: {
             type: String,
-            required: false
+            required: false,
         },
         totalData: {
             type: Map,
-            required: true
+            required: true,
         },
         totalProjects: {
             type: String,
-            required: true
+            required: true,
         },
         userId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: false
+            required: false,
         },
         Cst_profileImage: {
             type: String,
-            required: false
+            required: false,
         },
         planFeature: {
             type: Map,
-            required: false
+            required: false,
         },
         availableUser: {
             type: Number,
         },
         projectCount: {
             type: Object,
-            required: false
+            required: false,
         },
         isPlanShchedule: {
             type: Boolean,
         },
         bucketSize: {
             type: Number,
-            required: false
+            required: false,
         },
         isPaymentFailed: {
             type: Boolean,
@@ -618,336 +619,336 @@ const schema = {
         },
         companyData: {
             type: Array,
-            required: false
+            required: false,
         },
         subscriptionRenewalDate: {
             type: Number,
         },
         isDisable: {
             type: Boolean,
-            required: false
+            required: false,
         },
         billingDetails: {
             type: Object,
-            required: false
+            required: false,
         },
         aiTotalRequestedCount: {
             type: Number,
-            required: false
+            required: false,
         },
         Cst_stateCode: {
             type: String,
-            required: false
+            required: false,
         },
         Cst_countryCode: {
             type: String,
-            required: false
-        }
+            required: false,
+        },
     },
     companyProjectTemplate: {
         AssigneeUserId: {
             type: Array,
-            required: true
+            required: true,
         },
         CompanyId: {
             type: String,
-            required: false
+            required: false,
         },
         CompanyName: {
             type: String,
-            required: false
+            required: false,
         },
         Description: {
             type: String,
-            required: false
+            required: false,
         },
         LeadUserId: {
             type: Array,
-            required: true
+            required: true,
         },
         ProjectCurrency: {
             type: Map,
-            required: true
+            required: true,
         },
         ProjectRequiredDefaultComponent: {
             type: String,
-            required: true
+            required: true,
         },
         TaskTypeTemplateId: {
             type: String,
-            required: false
+            required: false,
         },
         TemplateName: {
             type: String,
-            required: true
+            required: true,
         },
         TemplateRequiredComponent: {
             type: Array,
-            required: true
+            required: true,
         },
         TemplateTaskActiveKey: {
             type: Array,
-            required: false
+            required: false,
         },
         TemplateTaskCloseKey: {
             type: Number,
-            required: false
+            required: false,
         },
         TemplateTaskDoneKey: {
             type: Array,
-            required: false
+            required: false,
         },
         TemplateTaskStatusId: {
             type: String,
-            required: false
+            required: false,
         },
         TemplateTaskType: {
             type: Array,
-            required: true
+            required: true,
         },
         apps: {
             type: Array,
-            required: true
+            required: true,
         },
         projectStatusData: {
             type: Array,
-            required: true
+            required: true,
         },
         taskStatusData: {
             type: Array,
-            required: true
+            required: true,
         },
         templateImageURL: {
             type: Map,
-            required: false
+            required: false,
         },
         customFiedlsValue: {
             type: Array,
-            required: false
-        }
+            required: false,
+        },
     },
     proejctTabComponents: {
         activeIcon: {
             type: String,
-            required: false
+            required: false,
         },
         icon: {
             type: String,
-            required: false
+            required: false,
         },
         keyName: {
             type: String,
-            required: true
+            required: true,
         },
         name: {
             type: String,
-            required: true
+            required: true,
         },
         setAsDefault: {
             type: Boolean,
-            required: true
+            required: true,
         },
         sortIndex: {
             type: Number,
-            required: true
+            required: true,
         },
         value: {
             type: String,
-            required: true
+            required: true,
         },
         viewStatus: {
             type: Boolean,
-            required: true
-        }
+            required: true,
+        },
     },
     projectStatusTemplate: {
         TemplateName: {
             type: String,
-            required: true
+            required: true,
         },
         projectActiveStatus: {
             type: Array,
-            required: true
+            required: true,
         },
         projectCompletedStatus: {
             type: Map,
-            required: true
+            required: true,
         },
         projectDoneStatus: {
             type: Array,
-            required: true
+            required: true,
         },
         default: {
             type: Boolean,
-            required: false
-        }
+            required: false,
+        },
     },
     taskTypeTemplates: {
         TemplateName: {
             type: String,
-            required: true
+            required: true,
         },
         taskTypes: {
             type: Array,
-            required: true
+            required: true,
         },
         default: {
             type: Boolean,
-            required: false
+            required: false,
         },
     },
     taskStatusTemplates: {
         ActiveStatusList: {
             type: Array,
-            required: true
+            required: true,
         },
         DoneStatusList: {
             type: Array,
-            required: true
+            required: true,
         },
         TemplateName: {
             type: String,
-            required: true
+            required: true,
         },
         defaultActive: {
             type: Map,
-            required: true
+            required: true,
         },
         defaultComplete: {
             type: Map,
-            required: true
+            required: true,
         },
         default: {
             type: Boolean,
-            required: false
+            required: false,
         },
         taskActiveStatus: {
             type: Array,
-            required: false
+            required: false,
         },
         taskcloseStatus: {
             type: Number,
-            required: false
-        }
+            required: false,
+        },
     },
     temsManagment: {
         assigneeUsersArray: {
             type: Array,
-            required: true
+            required: true,
         },
         name: {
             type: String,
-            required: true
+            required: true,
         },
         teamColor: {
             type: Map,
-            required: true
+            required: true,
         },
         value: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     companyUsers: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         companyId: {
             type: String,
-            required: true
+            required: true,
         },
         designation: {
             type: Number,
-            required: true
+            required: true,
         },
         isDelete: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
         linkId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         roleType: {
             type: Number,
-            required: true
+            required: true,
         },
         sendInvitationTime: {
             type: Number,
-            required: false
+            required: false,
         },
         status: {
             type: Number,
-            required: true
+            required: true,
         },
         userEmail: {
             type: String,
-            required: true
+            required: true,
         },
         embedViews: {
             type: Map,
-            required: false
+            required: false,
         },
         userId: {
             type: String,
-            required: false
+            required: false,
         },
         isTrackerUser: {
             type: Boolean,
-            required: false
+            required: false,
         },
         isRestrict: {
             type: Boolean,
             required: false,
-            default: false
+            default: false,
         },
         dashboardLocked: {
             type: Boolean,
             required: false,
-            default: false
+            default: false,
         },
         aiRequestedCount: {
             type: Number,
-            required: false
+            required: false,
         },
         ProjectRequiredComponent: {
             type: Array,
-            required: false
-        }
+            required: false,
+        },
     },
     rules: {
         dependency: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         desc: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         isParent: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
         key: {
             type: String,
             required: true,
-            default: ""
+            default: "",
         },
         name: {
             type: String,
             required: true,
-            default: ""
+            default: "",
         },
         parentId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         priorityIndex: {
             type: Number,
@@ -956,208 +957,207 @@ const schema = {
         roles: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         allowAdminForPrivateSpace: {
             type: Boolean,
-            required: false
+            required: false,
         },
         showAllTasks: {
             type: Boolean,
-            required: false
+            required: false,
         },
         showAllProjects: {
             type: Boolean,
-            required: false
+            required: false,
         },
         selectionField: {
             type: Boolean,
-            required: false
-        }
-
+            required: false,
+        },
     },
     estimatedTime: {
         Date: {
             type: Date,
-            required: true
+            required: true,
         },
         ProjectId: {
             type: String,
-            required: true
+            required: true,
         },
         TaskId: {
             type: String,
-            required: true
+            required: true,
         },
         UserId: {
             type: String,
-            required: true
+            required: true,
         },
         EstimatedTime: {
             type: Number,
-            required: true
+            required: true,
         },
         userId: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     currency_list: {
         code: {
             type: String,
-            required: true
+            required: true,
         },
         count: {
             type: Number,
-            required: true
+            required: true,
         },
         decimal_digits: {
             type: Number,
-            required: true
+            required: true,
         },
         isDefault: {
             type: Boolean,
-            required: true
+            required: true,
         },
         isDelete: {
             type: Boolean,
-            required: true
+            required: true,
         },
         name: {
             type: String,
-            required: true
+            required: true,
         },
         name_plural: {
             type: String,
-            required: true
+            required: true,
         },
         rounding: {
             type: Number,
-            required: true
+            required: true,
         },
         symbol: {
             type: String,
-            required: true
+            required: true,
         },
         symbol_native: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     projects: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         AssigneeUserId: {
             type: Array,
             default: [],
-            required: false
+            required: false,
         },
         BillingPeriod: {
             type: String,
-            required: false
+            required: false,
         },
         CompanyId: {
             type: String,
-            required: true
+            required: true,
         },
         DueDate: {
             type: Date,
-            required: false
+            required: false,
         },
         EndDate: {
             type: Date,
-            required: false
+            required: false,
         },
         LeadUserId: {
             type: Array,
             default: [],
-            required: true
+            required: true,
         },
         ProjectCode: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectCurrency: {
             type: Object,
-            required: true
+            required: true,
         },
         ProjectName: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectRequiredComponent: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         ProjectRequiredDefaultComponent: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectType: {
             type: String,
-            required: true
+            required: true,
         },
         StartDate: {
             type: Date,
-            required: false
+            required: false,
         },
         TaskTypeTemplateId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         TemplateId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         TemplateTaskStatusId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         apps: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         checklistArray: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         attachments: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         description: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         dueDateDeadLine: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         isPrivateSpace: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
         lastTaskId: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         milestoneAmount: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         projectCreatedBy: {
             type: String,
@@ -1165,12 +1165,12 @@ const schema = {
         },
         projectIcon: {
             type: Object,
-            required: true
+            required: true,
         },
         projectStatusData: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         projectStatusTemplateId: {
             type: String,
@@ -1179,12 +1179,12 @@ const schema = {
         sprintsObj: {
             type: Object,
             required: false,
-            default: {}
+            default: {},
         },
         sprintsfolders: {
             type: Object,
             required: false,
-            default: {}
+            default: {},
         },
         status: {
             type: String,
@@ -1197,41 +1197,41 @@ const schema = {
         taskStatusData: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         taskTypeCounts: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         milestoneAmount: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         deletedStatusKey: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         isGlobalPermission: {
             type: Boolean,
             required: true,
-            default: true
+            default: true,
         },
         lastProjectActivity: {
             type: Number,
-            required: false
+            required: false,
         },
         userActivity: {
             type: Object,
             required: false,
-            default: {}
+            default: {},
         },
         isRestrict: {
             type: Boolean,
             required: false,
-            default: false
+            default: false,
         },
         viewColumn: {
             type: Array,
@@ -1243,123 +1243,123 @@ const schema = {
         },
         watchers: {
             type: Object,
-            required: false
+            required: false,
         },
         descriptionBlock: {
             type: Object,
-            required: false
+            required: false,
         },
         customField: {
             type: Object,
-            required: false
+            required: false,
         },
         tagsArray: {
             type: Array,
-            required: false
-        }
+            required: false,
+        },
     },
     mainChats: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         default: {
             type: Boolean,
-            required: true
+            required: true,
         },
         AssigneeUserId: {
             type: Array,
             default: [],
-            required: false
+            required: false,
         },
         DueDate: {
             type: Number,
-            required: false
+            required: false,
         },
         EndDate: {
             type: Number,
-            required: false
+            required: false,
         },
         LeadUserId: {
             type: Array,
             default: [],
-            required: true
+            required: true,
         },
         ProjectCode: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectName: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectRequiredComponent: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         StartDate: {
             type: Number,
-            required: false
+            required: false,
         },
         TaskTypeTemplateId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         TemplateId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         TemplateTaskStatusId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         apps: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         checklistArray: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         description: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         dueDateDeadLine: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         isPrivateSpace: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
         lastTaskId: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         milestoneAmount: {
             type: Number,
             required: false,
-            default: 0
+            default: 0,
         },
         projectIcon: {
             type: Object,
-            required: false
+            required: false,
         },
         projectStatusData: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         projectStatusTemplateId: {
             type: String,
@@ -1368,12 +1368,12 @@ const schema = {
         sprintsObj: {
             type: Object,
             required: false,
-            default: {}
+            default: {},
         },
         sprintsfolders: {
             type: Object,
             required: false,
-            default: {}
+            default: {},
         },
         status: {
             type: String,
@@ -1386,28 +1386,28 @@ const schema = {
         taskStatusData: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         taskTypeCounts: {
             type: Array,
             required: true,
-            default: []
-        }
+            default: [],
+        },
     },
     settings: {
         settings: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         name: {
             type: String,
-            required: true
+            required: true,
         },
         totalStatus: {
             type: Number,
-            required: false
-        }
+            required: false,
+        },
     },
     milestone: {
         milestoneName: {
@@ -1464,20 +1464,20 @@ const schema = {
         },
         minute: {
             type: Number,
-            required: false
+            required: false,
         },
         hours: {
             type: Number,
-            required: false
+            required: false,
         },
         amountPerHours: {
             type: Number,
-            required: false
+            required: false,
         },
         billingPeriod: {
             type: String,
-            required: false
-        }
+            required: false,
+        },
     },
     apps: {
         afterIcon: {
@@ -1503,7 +1503,7 @@ const schema = {
         sortIndex: {
             type: Number,
             required: true,
-        }
+        },
     },
     notifications: {
         key: {
@@ -1545,7 +1545,7 @@ const schema = {
         notSeen: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         sprintId: {
             type: String,
@@ -1574,7 +1574,7 @@ const schema = {
         notificationType: {
             type: String,
             required: true,
-            default: "push"
+            default: "push",
         },
         uniqueId: {
             type: String,
@@ -1582,7 +1582,7 @@ const schema = {
         },
         isSchedule: {
             type: Boolean,
-            required: false
+            required: false,
         },
         Employee_Email: {
             type: String,
@@ -1614,7 +1614,7 @@ const schema = {
         },
         isSeen: {
             type: Boolean,
-            required: false
+            required: false,
         },
         webTokens: {
             type: Array,
@@ -1622,300 +1622,300 @@ const schema = {
         },
         notificationId: {
             type: String,
-            required: false
+            required: false,
         },
         comments_id: {
             type: String,
-            required: false
+            required: false,
         },
         User_Employee_Verify: {
             type: Boolean,
-            required: false
-        }
+            required: false,
+        },
     },
     notificationsSettings: {
         before: {
             type: Object,
-            required: true
+            required: true,
         },
         project: {
             type: Object,
-            required: true
+            required: true,
         },
         tasks: {
             type: Object,
-            required: true
+            required: true,
         },
         chat: {
             type: Object,
-            required: true
+            required: true,
         },
         userId: {
             type: String,
             required: true,
-        }
+        },
     },
     mentions: {
         comment_id: {
             type: String,
-            required: true
+            required: true,
         },
         comment_mediaOriginalName: {
             type: String,
-            required: false
+            required: false,
         },
         comment_mediaName: {
             type: String,
-            required: false
+            required: false,
         },
         comment_mediaSize: {
             type: Number,
-            required: false
+            required: false,
         },
         comment_mediaURL: {
             type: String,
-            required: false
+            required: false,
         },
         comment_message: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_id: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_mediaOriginalName: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_mediaName: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_mediaSize: {
             type: Number,
-            required: false
+            required: false,
         },
         comment_reply_mediaURL: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_message: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_type: {
             type: String,
-            required: false
+            required: false,
         },
         comment_reply_userId: {
             type: String,
-            required: false
+            required: false,
         },
         comment_type: {
             type: String,
-            required: true
+            required: true,
         },
         folderId: {
             type: String,
-            required: false
+            required: false,
         },
         mentionIds: {
             type: Array,
-            required: true
+            required: true,
         },
         notSeen: {
             type: Array,
-            required: false
+            required: false,
         },
         projectId: {
             type: String,
-            required: true
+            required: true,
         },
         sprintId: {
             type: String,
-            required: false
+            required: false,
         },
         taskId: {
             type: String,
-            required: false
+            required: false,
         },
         type: {
             type: String,
-            required: true
+            required: true,
         },
         userId: {
             type: String,
-            required: true
+            required: true,
         },
         mainChat: {
             type: Boolean,
             required: false,
-            default: false
-        }
+            default: false,
+        },
     },
     comments: {
-        "legacyId": {
+        legacyId: {
             type: String,
-            required: false
+            required: false,
         },
-        "hasReply": {
+        hasReply: {
             type: Boolean,
-            required: false
+            required: false,
         },
-        "isDeleted": {
+        isDeleted: {
             type: Boolean,
-            required: false
+            required: false,
         },
-        "mediaName": {
+        mediaName: {
             type: String,
-            required: false
+            required: false,
         },
-        "message": {
+        message: {
             type: String,
-            required: false
+            required: false,
         },
-        "mediaSize": {
+        mediaSize: {
             type: Number,
-            required: false
+            required: false,
         },
-        "mediaURL": {
+        mediaURL: {
             type: String,
-            required: false
+            required: false,
         },
-        "sprintId": {
+        sprintId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: false
+            required: false,
         },
-        "project": {
+        project: {
             type: Boolean,
-            required: true
+            required: true,
         },
-        "projectId": {
+        projectId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
+            required: true,
         },
-        "reply_userId": {
+        reply_userId: {
             type: String,
-            required: false
+            required: false,
         },
-        "reply_type": {
+        reply_type: {
             type: String,
-            required: false
+            required: false,
         },
-        "reply_message": {
+        reply_message: {
             type: String,
-            required: false
+            required: false,
         },
-        "reply_mediaURL": {
+        reply_mediaURL: {
             type: String,
-            required: false
+            required: false,
         },
-        "taskId": {
+        taskId: {
             type: mongoose.Schema.Types.Mixed,
-            required: false
+            required: false,
         },
-        "reply_mediaSize": {
+        reply_mediaSize: {
             type: Number,
-            required: false
+            required: false,
         },
-        "reply_mediaName": {
+        reply_mediaName: {
             type: String,
-            required: false
+            required: false,
         },
-        "reply_mediaOriginalName": {
+        reply_mediaOriginalName: {
             type: String,
-            required: false
+            required: false,
         },
-        "reply_id": {
+        reply_id: {
             type: String,
-            required: false
+            required: false,
         },
-        "userId": {
+        userId: {
             type: String,
-            required: true
+            required: true,
         },
-        "type": {
+        type: {
             type: String,
-            required: true
+            required: true,
         },
-        "reply_createdAt": {
+        reply_createdAt: {
             type: Date,
-            required: false
+            required: false,
         },
-        "mentionIds": {
+        mentionIds: {
             type: Array,
-            required: false
+            required: false,
         },
-        "pinnedMessage": {
+        pinnedMessage: {
             type: Boolean,
             default: false,
-            required: false
+            required: false,
         },
-        "mediaOriginalName": {
+        mediaOriginalName: {
             type: String,
-            required: false
+            required: false,
         },
         folderId: {
             type: mongoose.Schema.Types.ObjectId,
             required: false,
-        }
+        },
     },
     mainChat: {
         ProjectCode: {
             type: String,
-            required: true
+            required: true,
         },
         ProjectName: {
             type: String,
-            required: true
+            required: true,
         },
         default: {
             type: Boolean,
-            required: true
+            required: true,
         },
         sprintsfolders: {
             type: Object,
             required: true,
-            default: {}
+            default: {},
         },
         taskStatusData: {
             type: Array,
-            required: true
+            required: true,
         },
         taskTypeCounts: {
             type: Array,
-            required: true
+            required: true,
         },
         name: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     subscriptionPlan: {
         addonPriceArray: {
             type: Array,
-            required: false
+            required: false,
         },
         status: {
             type: Number,
-            required: false
+            required: false,
         },
         planName: {
             type: String,
-            required: true
+            required: true,
         },
         itemPriceArray: {
             type: Array,
-            required: false
+            required: false,
         },
         planDetails: {
             type: Object,
-            required: false
+            required: false,
         },
         isDefaultShow: {
             type: Boolean,
-            required: false
+            required: false,
         },
         defaultSubscribe: {
             type: Boolean,
@@ -1924,44 +1924,44 @@ const schema = {
         status: {
             type: Number,
             required: false,
-        }
+        },
     },
     planFeature: {
         planName: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     projectRules: {
         dependency: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         desc: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         isParent: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
         key: {
             type: String,
             required: true,
-            default: ""
+            default: "",
         },
         name: {
             type: String,
             required: true,
-            default: ""
+            default: "",
         },
         parentId: {
             type: String,
             required: false,
-            default: ""
+            default: "",
         },
         priorityIndex: {
             type: Number,
@@ -1970,205 +1970,205 @@ const schema = {
         roles: {
             type: Array,
             required: true,
-            default: []
+            default: [],
         },
         allowAdminForPrivateSpace: {
             type: Boolean,
-            required: false
+            required: false,
         },
         showAllTasks: {
             type: Boolean,
-            required: false
+            required: false,
         },
         showAllProjects: {
             type: Boolean,
-            required: false
+            required: false,
         },
         projectId: {
             type: String,
             required: true,
-            default: ''
-        }
+            default: "",
+        },
     },
     planFeatureDisplay: {
         planName: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     subscriptions: {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
+            required: true,
         },
         companyId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
-        }
+            required: true,
+        },
     },
     invoices: {},
     creditNotes: {},
     globalCustomFields: {
         cfPrimaryColor: {
             type: String,
-            required: true
+            required: true,
         },
         cfType: {
             type: String,
-            required: true
+            required: true,
         },
         cfDescrption: {
             type: String,
-            required: true
+            required: true,
         },
         cfIcon: {
             type: String,
-            required: true
+            required: true,
         },
         cfTitle: {
             type: String,
-            required: true
+            required: true,
         },
         cfIconGrey: {
             type: String,
-            required: true
+            required: true,
         },
         cfBackgroundColor: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     customFields: {
         fieldTitle: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldPlaceholder: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldDescription: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldRequired: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         fieldMinimum: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldMaximum: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldHide: {
             type: Array,
             required: false,
-            default: []
+            default: [],
         },
         fieldValidation: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldType: {
             type: String,
             required: true,
-            default: ''
+            default: "",
         },
         global: {
             type: Boolean,
             required: false,
-            default: false
+            default: false,
         },
         projectId: {
             type: Array,
             required: false,
-            default: ''
+            default: "",
         },
         type: {
             type: String,
             required: true,
-            default: ''
+            default: "",
         },
         fieldEntryLimits: {
             type: Array,
             required: false,
-            default: ''
+            default: "",
         },
         fieldImage: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldImageGrey: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldPrimaryColor: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldBackgroundColor: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         isDelete: {
             type: Boolean,
             required: false,
-            default: ''
+            default: "",
         },
         fieldCountryObject: {
             type: Object,
             required: false,
-            default: ''
+            default: "",
         },
         fieldCountryCode: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldCountrySelect: {
             type: Array,
             required: false,
-            default: ''
+            default: "",
         },
         fieldMoneyCode: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldMoneyName: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         fieldMoneySymbol: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         userId: {
             type: String,
             required: false,
-            default: ''
+            default: "",
         },
         projectId: {
             type: mongoose.Schema.Types.Mixed,
             required: false,
-            default: ''
-        }
+            default: "",
+        },
     },
     sprints: {
         sendMessage: {
@@ -2201,11 +2201,11 @@ const schema = {
         },
         private: {
             type: Boolean,
-            required: true
+            required: true,
         },
         deletedStatusKey: {
             type: Number,
-            required: true
+            required: true,
         },
         archiveTaskCount: {
             type: Number,
@@ -2217,23 +2217,23 @@ const schema = {
         },
         AssigneeUserId: {
             type: Array,
-            required: false
+            required: false,
         },
         watchers: {
             type: Array,
-            required: false
+            required: false,
         },
         favouriteTasks: {
             type: Array,
-            required: false
+            required: false,
         },
         legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         url: {
             type: String,
-            required: false
+            required: false,
         },
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
@@ -2251,11 +2251,11 @@ const schema = {
         },
         deletedStatusKey: {
             type: Number,
-            required: true
+            required: true,
         },
         legacyId: {
             type: String,
-            required: false
+            required: false,
         },
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
@@ -2265,53 +2265,53 @@ const schema = {
     preCompanies: {
         isAvailable: {
             type: Boolean,
-            required: true
+            required: true,
         },
         pickupCount: {
             type: Number,
-            required: true
-        }
+            required: true,
+        },
     },
     restrictedExtensions: {
         extensions: {
             type: Array,
             required: true,
-            default: []
-        }
+            default: [],
+        },
     },
     tours: {
         title: {
             type: String,
-            required: true
+            required: true,
         },
         description: {
             type: String,
-            required: true
+            required: true,
         },
         image: {
             type: String,
-            required: true
+            required: true,
         },
         isCompleted: {
             type: Boolean,
-            required: true
+            required: true,
         },
         id: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     bucket: {
         id: {
             type: String,
             required: true,
             unique: true,
-            immutable: true
+            immutable: true,
         },
         rule: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
     globalFilter: {
         name: {
@@ -2345,7 +2345,7 @@ const schema = {
         sortByOrder: {
             type: Object,
             required: false,
-        }
+        },
     },
     userAuth: {
         email: {
@@ -2353,145 +2353,145 @@ const schema = {
             required: true,
             unique: true,
             trim: true,
-            lowercase: true
+            lowercase: true,
         },
         passwordHash: {
             type: String,
-            required: false
+            required: false,
         },
         isBlocked: {
             type: Boolean,
-            default: false
+            default: false,
         },
         token: {
             type: String,
-            required: false
-        }
+            required: false,
+        },
     },
     resetAttempt: {
         ip: {
             type: String,
-            required: true
+            required: true,
         },
         attempts: {
             type: Number,
-            default: 0
+            default: 0,
         },
         firstAttemptTime: {
             type: Date,
-            default: null
+            default: null,
         },
         blockedUntil: {
             type: Date,
-            default: null
+            default: null,
         },
         isSendMail: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
     sessions: {
         expireAt: {
             type: Date,
-            required: false
+            required: false,
         },
         userId: {
             type: String,
-            required: true
+            required: true,
         },
         ip: {
             type: String,
-            required: true
+            required: true,
         },
         webToken: {
             type: String,
-            required: false
+            required: false,
         },
         info: {
             type: Object,
-            required: false
+            required: false,
         },
         refreshToken: {
             type: String,
-            required: false
+            required: false,
         },
         lastActive: {
             type: Date,
-            default: new Date()
-        }
+            default: new Date(),
+        },
     },
     refferalcodes: {
         code: {
             type: String,
             unique: true,
-            required: true
+            required: true,
         },
         companyId: {
             type: String,
-            required: true
+            required: true,
         },
         ownerId: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     refferalmapping: {
         joinedCompanyId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
+            required: true,
         },
         inviterCompanyId: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
+            required: true,
         },
         transectionPercentage: {
             type: Number,
-            required: true
+            required: true,
         },
         validityTime: {
             type: Date,
-            required: true
-        }
+            required: true,
+        },
     },
     globalSettings: {
         name: {
             type: String,
-            required: true
+            required: true,
         },
         value: {
             type: mongoose.Schema.Types.Mixed,
-            required: true
-        }
+            required: true,
+        },
     },
     userDashboard: {
         userId: {
             type: String,
-            required: true
+            required: true,
         },
         templateId: {
             type: String,
-            required: false
+            required: false,
         },
         cards: {
             type: Array,
-            required: true
+            required: true,
         },
         createdAt: {
             type: Date,
-            required: true
+            required: true,
         },
         updatedAt: {
             type: Date,
-            required: true
+            required: true,
         },
         title: {
             type: String,
-            required: true
+            required: true,
         },
         isDeleted: {
             type: Boolean,
-            required: true
-        }
+            required: true,
+        },
     },
     groupChats: {
         GroupName: {
@@ -2502,7 +2502,7 @@ const schema = {
         GroupChatImage: {
             type: String,
             require: false,
-            default: null
+            default: null,
         },
         CompanyId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -2553,7 +2553,7 @@ const schema = {
         UserAdmin: {
             type: [mongoose.Schema.Types.ObjectId],
             require: false,
-            default: []
+            default: [],
         },
         memberPermissions: {
             type: {
@@ -2581,48 +2581,48 @@ const schema = {
         groupChatId: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
-            index: true
+            index: true,
         },
         userId: {
             type: String,
-            required: true
+            required: true,
         },
         companyId: {
             type: String,
-            required: true
+            required: true,
         },
         type: {
             type: String,
-            required: true
+            required: true,
         },
         message: {
             type: String,
-            default: null
+            default: null,
         },
         systemType: {
             type: String,
             enum: [
-                'group_created',
-                'member_added',
-                'member_removed',
-                'member_left',
-                'name_changed',
-                'avatar_changed',
-                'group_dissolved',
-                'admin_added',
-                'admin_removed',
-                'send_message_enabled',
-                'send_message_disabled',
+                "group_created",
+                "member_added",
+                "member_removed",
+                "member_left",
+                "name_changed",
+                "avatar_changed",
+                "group_dissolved",
+                "admin_added",
+                "admin_removed",
+                "send_message_enabled",
+                "send_message_disabled",
             ],
-            default: null
+            default: null,
         },
         targetUserIds: {
             type: [String],
-            default: null
+            default: null,
         },
         metadata: {
             type: mongoose.Schema.Types.Mixed,
-            default: null
+            default: null,
         },
         mediaName: String,
         mediaOriginalName: String,
@@ -2640,24 +2640,24 @@ const schema = {
         reply_createdAt: Date,
         hasReply: {
             type: Boolean,
-            required: false
+            required: false,
         },
         mentionMeta: Array,
 
         isDeleted: {
             type: Boolean,
-            default: false
+            default: false,
         },
 
         pinnedMessage: {
             type: Boolean,
-            default: false
+            default: false,
         },
 
         legacyId: String,
         project: {
             type: Boolean,
-            default: false
+            default: false,
         },
         projectId: mongoose.Schema.Types.ObjectId,
         sprintId: mongoose.Schema.Types.ObjectId,
@@ -2673,12 +2673,12 @@ const schema = {
         createdAt: { type: Date, default: Date.now },
     },
     stickers: {
-        packId: { type: mongoose.Schema.Types.ObjectId, ref: 'sticker_packs', required: true },
+        packId: { type: mongoose.Schema.Types.ObjectId, ref: "sticker_packs", required: true },
         name: { type: String },
         imageURL: { type: String, required: true },
         originalURL: { type: String, required: true },
         createdAt: { type: Date, default: Date.now },
-    }
-}
+    },
+};
 
 module.exports = { schema };

@@ -5,6 +5,7 @@ const SCHEMA_TYPE = {
     USERID: "userId",
     MILESTONE: "milestone",
     USERS: "users",
+    FRIENDNICKNAMES: "friendNicknames",
     ADMIN_DETAIL: "adminDetail",
     WASABICREDENTIALS: "wasabicredentials",
     PROJECT_MAIN_TEMPLATES: "ProjectTemplate",

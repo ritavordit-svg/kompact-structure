@@ -30,6 +30,7 @@ const dbCollections = {
     MENTIONS: "mentions",
     COMMON: "common",
     GLOBAL: "global",
+    FRIENDNICKNAMES: "friendNicknames",
 
     // Extra Collection List
     UPDATE_TYPESENCE_REPO: "update_typesence_repo",

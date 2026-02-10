@@ -21,7 +21,7 @@ exports.updateUserStatus = (req, res) => {
     let data = [{ _id: new mongoose.Types.ObjectId(req.body.userId) }, updateObject, newObj];
 
     let obj = {
-        type: dbCollections.USERS,
+        type: dbCollections.FRIENDNICKNAMES,
         data: data,
     };
 
@@ -301,70 +301,4 @@ exports.updateUserFun = (type, companyObj, method, companyId = "", userId = "", 
             reject(error);
         }
     });
-};
-
-exports.updateFriendNickname = async (req, res) => {
-    try {
-        const { userId, friendId, newNickname } = req.body;
-
-        if (!userId) {
-            return res.status(400).json({
-                status: false,
-                message: "userId are required.",
-            });
-        }
-        if (!friendId) {
-            return res.status(400).json({
-                status: false,
-                message: "friendId are required.",
-            });
-        }
-        if (!newNickname) {
-            return res.status(400).json({
-                status: false,
-                message: "newNickname are required.",
-            });
-        }
-        
-        let data = [
-            { _id: new mongoose.Types.ObjectId(userId), "friendNicknames.userId": friendId },
-            {
-                $set: {
-                    "friendNicknames.$.nickname": newNickname,
-                },
-            },
-        ];
-
-        let obj = {
-            type: dbCollections.USERS,
-            data: data,
-        };
-
-        const cacheKey = `UserData:${req.body.userId}`;
-        MongoDbCrudOpration("global", obj, "findOneAndUpdate")
-            .then((response) => {
-                removeCache(cacheKey);
-                removeCache("UserAllData:", true);
-                res.send({
-                    status: true,
-                    statusText: "User Friend Nickname Updated",
-                    data: response,
-                });
-            })
-            .catch((error) => {
-                res.send({
-                    status: false,
-                    statusText: "User Friend Nickname Not Updated",
-                    error: error.message || error,
-                });
-                logger.error("USER FRIEND NICKNAME UPDATE ERROR updateFriendNickname: ", error);
-            });
-    } catch (error) {
-        res.send({
-            status: false,
-            statusText: "User Friend Nickname Not Updated",
-            error: error.message || error,
-        });
-        logger.error("USER FRIEND NICKNAME UPDATE ERROR updateFriendNickname: ", error);
-    }
 };

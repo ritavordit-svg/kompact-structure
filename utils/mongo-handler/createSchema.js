@@ -52,6 +52,8 @@ const sprints = new Schema(schema.sprints, { strict: true, timestamps: true });
 const folders = new Schema(schema.folders, { strict: true, timestamps: true });
 const restrictedExtensions = new Schema(schema.restrictedExtensions, { strict: true, timestamps: true });
 const tours = new Schema(schema.tours, { strict: true, timestamps: true });
+const friendNicknamesSchema = new Schema(schema.friendNicknames, { strict: true, timestamps: true });
+
 
 const preCompaniesSchema = new Schema(schema.preCompanies, { strict: true, timestamps: true })
 const bucketSchema = new Schema(schema.bucket, { strict: true, timestamps: true })
@@ -106,6 +108,7 @@ module.exports = {
     historySchema,
     userIdSchema,
     usersSchema,
+    friendNicknamesSchema,
     adminDetailSchema,
     wasabicredentials,
     ProjectTemplate,

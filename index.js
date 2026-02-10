@@ -150,6 +150,7 @@ function initializeControllers() {
     require('./Modules/settings/settingMilestone/init').init(app);
     require("./Modules/generateMongoId/init").init(app);
     require("./Modules/UserDashboard/init.js").init(app);
+    require("./Modules/FriendNicknames/init.js").init(app);
 }
 
 // FIRES EVENT WHEN THE ENV IS UPDATED

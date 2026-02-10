@@ -370,7 +370,20 @@ const schema = {
             type: Object,
             required: false,
         },
-        friendNicknames: [{ userId: String, nickname: String }],
+    },
+    friendNicknames: {
+        userId: {
+            type: String,
+            required: true,
+        },
+        friendId: {
+            type: String,
+            required: true,
+        },
+        nickname: {
+            type: String,
+            required: true,
+        },
     },
     notes: {
         userId: {

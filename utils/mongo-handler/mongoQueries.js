@@ -1,11 +1,12 @@
-const { SCHEMA_TYPE } = require('../../Config/schemaType');
-const { dbCollections, dbNames } = require('../../Config/collections');
-const { handleConnection } = require("../../middlewares/mongoConnector/mongoConnection")
+const { SCHEMA_TYPE } = require("../../Config/schemaType");
+const { dbCollections, dbNames } = require("../../Config/collections");
+const { handleConnection } = require("../../middlewares/mongoConnector/mongoConnection");
 const {
     timeSheetSchema,
     historySchema,
     userIdSchema,
     usersSchema,
+    friendNicknamesSchema,
     adminDetailSchema,
     wasabicredentials,
     ProjectTemplate,
@@ -59,258 +60,261 @@ const {
     chatSchema,
     stickerPacksSchema,
     stickerSchema,
-} = require('./createSchema');
-const mongoose = require('mongoose');
-
+} = require("./createSchema");
+const mongoose = require("mongoose");
 
 exports.checkType = (type) => {
     switch (type) {
         case SCHEMA_TYPE.TASKS:
-            return taskSchema
+            return taskSchema;
         case SCHEMA_TYPE.TIMESHEET:
-            return timeSheetSchema
+            return timeSheetSchema;
         case SCHEMA_TYPE.HISTORY:
-            return historySchema
+            return historySchema;
         case SCHEMA_TYPE.USERID:
-            return userIdSchema
+            return userIdSchema;
         case SCHEMA_TYPE.USERS:
-            return usersSchema
+            return usersSchema;
+        case SCHEMA_TYPE.FRIENDNICKNAMES:
+            return friendNicknamesSchema;
         case SCHEMA_TYPE.ADMIN_DETAIL:
-            return adminDetailSchema
+            return adminDetailSchema;
         case SCHEMA_TYPE.WASABICREDENTIALS:
-            return wasabicredentials
+            return wasabicredentials;
         case SCHEMA_TYPE.PROJECT_MAIN_TEMPLATES:
-            return ProjectTemplate
+            return ProjectTemplate;
         case SCHEMA_TYPE.TIMETRACKER_DOWNLOAD:
-            return timeTrackerDownload
+            return timeTrackerDownload;
         case SCHEMA_TYPE.COMPANIES:
-            return companies
+            return companies;
         case SCHEMA_TYPE.PROJECT_TEMPLATES:
-            return companyProjectTemplate
+            return companyProjectTemplate;
         case SCHEMA_TYPE.PROJECT_TAB_COMPONENTS:
-            return proejctTabComponents
+            return proejctTabComponents;
         case SCHEMA_TYPE.PROJECT_STATUS_TEMPLATES:
-            return projectStatusTemplate
+            return projectStatusTemplate;
         case SCHEMA_TYPE.TASK_TYPE_TEMPLATES:
-            return taskTypeTemplates
+            return taskTypeTemplates;
         case SCHEMA_TYPE.TASK_STATUS_TEMPLATES:
-            return taskStatusTemplates
+            return taskStatusTemplates;
         case SCHEMA_TYPE.TEAMS_MANAGEMENT:
-            return temsManagment
+            return temsManagment;
         case SCHEMA_TYPE.COMPANY_USERS:
-            return companyUserSchema
+            return companyUserSchema;
         case SCHEMA_TYPE.RULES:
-            return rulesSchema
+            return rulesSchema;
         case SCHEMA_TYPE.ESTIMATES_TIME:
-            return estimatedTimeSchema
+            return estimatedTimeSchema;
         case SCHEMA_TYPE.CURRENCY_LIST:
-            return currencyListSchema
+            return currencyListSchema;
         case SCHEMA_TYPE.PROJECTS:
-            return projectsSchema
+            return projectsSchema;
         case SCHEMA_TYPE.MAIN_CHATS:
-            return mainChatSchema
+            return mainChatSchema;
         case SCHEMA_TYPE.SETTINGS:
-            return settingsSchema
+            return settingsSchema;
         case SCHEMA_TYPE.MILESTONE:
-            return milestone
+            return milestone;
         case SCHEMA_TYPE.APPS:
-            return appsSchema
+            return appsSchema;
         case SCHEMA_TYPE.NOTIFICATIONS:
-            return notificationsSchema
+            return notificationsSchema;
         case SCHEMA_TYPE.NOTIFICATIONS_SETTINGS:
-            return notificationsSettingsSchema
+            return notificationsSettingsSchema;
         case SCHEMA_TYPE.MENTIONS:
-            return mentionsSchema
+            return mentionsSchema;
         case SCHEMA_TYPE.COMMON:
-            return notificationsSchema
+            return notificationsSchema;
         case SCHEMA_TYPE.COMMENTS:
-            return commentSchema
+            return commentSchema;
         case SCHEMA_TYPE.PROJECT_RULES:
-            return projectRulesSchema
+            return projectRulesSchema;
         case SCHEMA_TYPE.SUBSCRIPTIONPLAN:
-            return subscriptionPlanSchema
+            return subscriptionPlanSchema;
         case SCHEMA_TYPE.PLANFEATURE:
-            return planFeatureSchema
+            return planFeatureSchema;
         case SCHEMA_TYPE.PLANFEATUREDISPLAY:
-            return planFeatureDisplaySchema
+            return planFeatureDisplaySchema;
         case SCHEMA_TYPE.SUBSCRIPTIONS:
-            return subscriptionsSchema
+            return subscriptionsSchema;
         case SCHEMA_TYPE.INVOICES:
-            return invoiceSchema
+            return invoiceSchema;
         case SCHEMA_TYPE.GLOBAL_CUSTOM_FIELDS:
-            return globalCustomFieldsSchema
+            return globalCustomFieldsSchema;
         case SCHEMA_TYPE.CUSTOM_FIELDS:
-            return customFieldsSchema
+            return customFieldsSchema;
         case SCHEMA_TYPE.CREDITNOTES:
-                return creditNoteSchema
+            return creditNoteSchema;
         case SCHEMA_TYPE.SPRINTS:
-            return sprints
+            return sprints;
         case SCHEMA_TYPE.FOLDERS:
-            return folders
+            return folders;
         case SCHEMA_TYPE.RESTRICTED_EXTENSIONS:
-            return restrictedExtensions
+            return restrictedExtensions;
         case SCHEMA_TYPE.TOURS:
-            return tours
+            return tours;
         case SCHEMA_TYPE.PRECOMPANIES:
-            return preCompaniesSchema
+            return preCompaniesSchema;
         case SCHEMA_TYPE.BUCKETS:
-            return bucketSchema
+            return bucketSchema;
         case SCHEMA_TYPE.GLOBALFILTER:
-            return globalFilterSchema
+            return globalFilterSchema;
         case SCHEMA_TYPE.USER_AUTH:
-            return userAuthSchema
+            return userAuthSchema;
         case SCHEMA_TYPE.RESET_ATTEMPT:
-            return resetAttemptSchema
+            return resetAttemptSchema;
         case SCHEMA_TYPE.SESSIONS:
-            return sessionsSchema
+            return sessionsSchema;
         case SCHEMA_TYPE.USERDASHBOARD:
-            return userDashboard
+            return userDashboard;
         case SCHEMA_TYPE.REFERCODE:
-            return referCodeSchema    
+            return referCodeSchema;
         case SCHEMA_TYPE.REFFERALMAPPING:
-            return refferalmapping
+            return refferalmapping;
         case SCHEMA_TYPE.GLOBALSETTING:
-            return globalSettingsSchema
+            return globalSettingsSchema;
         case SCHEMA_TYPE.NOTES:
-            return noteSchema
+            return noteSchema;
         case SCHEMA_TYPE.GROUP_CHAT:
-            return groupChatSchema
+            return groupChatSchema;
         case SCHEMA_TYPE.CHATS:
-            return chatSchema
+            return chatSchema;
         case SCHEMA_TYPE.STICKERS:
-            return stickerSchema
+            return stickerSchema;
         case SCHEMA_TYPE.STICKER_PACKS:
-            return stickerPacksSchema
+            return stickerPacksSchema;
         default:
-            return ""
+            return "";
     }
-}
+};
 exports.tableType = (type) => {
     switch (type) {
         case SCHEMA_TYPE.TASKS:
-            return `${dbCollections.TASKS}`
+            return `${dbCollections.TASKS}`;
         case SCHEMA_TYPE.TIMESHEET:
-            return `${dbCollections.TIMESHEET}`
+            return `${dbCollections.TIMESHEET}`;
         case SCHEMA_TYPE.HISTORY:
-            return `${dbCollections.HISTORY}`
+            return `${dbCollections.HISTORY}`;
         case SCHEMA_TYPE.USERID:
-            return `${dbCollections.USERID}`
+            return `${dbCollections.USERID}`;
         case SCHEMA_TYPE.USERS:
-            return `${dbCollections.USERS}`
+            return `${dbCollections.USERS}`;
+        case SCHEMA_TYPE.FRIENDNICKNAMES:
+            return `${dbCollections.FRIENDNICKNAMES}`;
         case SCHEMA_TYPE.ADMIN_DETAIL:
-            return `${dbCollections.ADMIN_DETAIL}`
+            return `${dbCollections.ADMIN_DETAIL}`;
         case SCHEMA_TYPE.WASABICREDENTIALS:
-            return `${dbCollections.WASABICREDENTIALS}`
+            return `${dbCollections.WASABICREDENTIALS}`;
         case SCHEMA_TYPE.PROJECT_MAIN_TEMPLATES:
-            return `${dbCollections.PROJECT_MAIN_TEMPLATES}`
+            return `${dbCollections.PROJECT_MAIN_TEMPLATES}`;
         case SCHEMA_TYPE.TIMETRACKER_DOWNLOAD:
-            return `${dbCollections.TIMETRACKER_DOWNLOAD}`
+            return `${dbCollections.TIMETRACKER_DOWNLOAD}`;
         case SCHEMA_TYPE.COMPANIES:
-            return `${dbCollections.COMPANIES}`
+            return `${dbCollections.COMPANIES}`;
         case SCHEMA_TYPE.PROJECT_TEMPLATES:
-            return `${dbCollections.PROJECT_TEMPLATES}`
+            return `${dbCollections.PROJECT_TEMPLATES}`;
         case SCHEMA_TYPE.PROJECT_TAB_COMPONENTS:
-            return `${dbCollections.PROJECT_TAB_COMPONENTS}`
+            return `${dbCollections.PROJECT_TAB_COMPONENTS}`;
         case SCHEMA_TYPE.PROJECT_STATUS_TEMPLATES:
-            return `${dbCollections.PROJECT_STATUS_TEMPLATES}`
+            return `${dbCollections.PROJECT_STATUS_TEMPLATES}`;
         case SCHEMA_TYPE.TASK_TYPE_TEMPLATES:
-            return `${dbCollections.TASK_TYPE_TEMPLATES}`
+            return `${dbCollections.TASK_TYPE_TEMPLATES}`;
         case SCHEMA_TYPE.TASK_STATUS_TEMPLATES:
-            return `${dbCollections.TASK_STATUS_TEMPLATES}`
+            return `${dbCollections.TASK_STATUS_TEMPLATES}`;
         case SCHEMA_TYPE.TEAMS_MANAGEMENT:
-            return `${dbCollections.TEAMS_MANAGEMENT}`
+            return `${dbCollections.TEAMS_MANAGEMENT}`;
         case SCHEMA_TYPE.COMPANY_USERS:
-            return `${dbCollections.COMPANY_USERS}`
+            return `${dbCollections.COMPANY_USERS}`;
         case SCHEMA_TYPE.RULES:
-            return `${dbCollections.RULES}`
+            return `${dbCollections.RULES}`;
         case SCHEMA_TYPE.ESTIMATES_TIME:
-            return `${dbCollections.ESTIMATED_TIME}`
+            return `${dbCollections.ESTIMATED_TIME}`;
         case SCHEMA_TYPE.CURRENCY_LIST:
-            return `${dbCollections.CURRENCY_LIST}`
+            return `${dbCollections.CURRENCY_LIST}`;
         case SCHEMA_TYPE.PROJECTS:
-            return `${dbCollections.PROJECTS}`
+            return `${dbCollections.PROJECTS}`;
         case SCHEMA_TYPE.MAIN_CHATS:
-            return `${dbCollections.MAIN_CHATS}`
+            return `${dbCollections.MAIN_CHATS}`;
         case SCHEMA_TYPE.SETTINGS:
-            return `${dbCollections.SETTINGS}`
+            return `${dbCollections.SETTINGS}`;
         case SCHEMA_TYPE.MILESTONE:
-            return `${dbCollections.MILESTONE}`
+            return `${dbCollections.MILESTONE}`;
         case SCHEMA_TYPE.APPS:
-            return `${dbCollections.APPS}`
+            return `${dbCollections.APPS}`;
         case SCHEMA_TYPE.NOTIFICATIONS:
-            return `${dbCollections.NOTIFICATIONS}`
+            return `${dbCollections.NOTIFICATIONS}`;
         case SCHEMA_TYPE.NOTIFICATIONS_SETTINGS:
-            return `${dbCollections.NOTIFICATIONS_SETTINGS}`
+            return `${dbCollections.NOTIFICATIONS_SETTINGS}`;
         case SCHEMA_TYPE.MENTIONS:
-            return `${dbCollections.MENTIONS}`
+            return `${dbCollections.MENTIONS}`;
         case SCHEMA_TYPE.COMPANY_NOTIFICATIONS:
-            return `${dbCollections.NOTIFICATIONS}`
+            return `${dbCollections.NOTIFICATIONS}`;
         case SCHEMA_TYPE.COMMON:
-            return `${dbCollections.COMMON}`
+            return `${dbCollections.COMMON}`;
         case SCHEMA_TYPE.COMMENTS:
-            return `${dbCollections.COMMENTS}`
+            return `${dbCollections.COMMENTS}`;
         case SCHEMA_TYPE.PROJECT_RULES:
-            return `${SCHEMA_TYPE.PROJECT_RULES}`
+            return `${SCHEMA_TYPE.PROJECT_RULES}`;
         case SCHEMA_TYPE.SUBSCRIPTIONPLAN:
-                return `${dbCollections.SUBSCRIPTIONPLAN}`
+            return `${dbCollections.SUBSCRIPTIONPLAN}`;
         case SCHEMA_TYPE.PLANFEATURE:
-            return `${dbCollections.PLANFEATURE}`
+            return `${dbCollections.PLANFEATURE}`;
         case SCHEMA_TYPE.PLANFEATUREDISPLAY:
-            return `${dbCollections.PLANFEATUREDISPLAY}`
+            return `${dbCollections.PLANFEATUREDISPLAY}`;
         case SCHEMA_TYPE.SUBSCRIPTIONS:
-            return `${dbCollections.SUBSCRIPTIONS}`
+            return `${dbCollections.SUBSCRIPTIONS}`;
         case SCHEMA_TYPE.INVOICES:
-                return `${dbCollections.INVOICES}`
+            return `${dbCollections.INVOICES}`;
         case SCHEMA_TYPE.CUSTOM_FIELDS:
-            return `${dbCollections.CUSTOM_FIELDS}`
+            return `${dbCollections.CUSTOM_FIELDS}`;
         case SCHEMA_TYPE.CREDITNOTES:
-            return `${dbCollections.CREDITNOTES}`
+            return `${dbCollections.CREDITNOTES}`;
         case SCHEMA_TYPE.SPRINTS:
-            return `${dbCollections.SPRINTS}`
+            return `${dbCollections.SPRINTS}`;
         case SCHEMA_TYPE.FOLDERS:
-            return `${dbCollections.FOLDERS}`
+            return `${dbCollections.FOLDERS}`;
         case SCHEMA_TYPE.RESTRICTED_EXTENSIONS:
-            return `${SCHEMA_TYPE.RESTRICTED_EXTENSIONS}`
+            return `${SCHEMA_TYPE.RESTRICTED_EXTENSIONS}`;
         case SCHEMA_TYPE.TOURS:
-            return `${SCHEMA_TYPE.TOURS}`
+            return `${SCHEMA_TYPE.TOURS}`;
         case SCHEMA_TYPE.PRECOMPANIES:
-            return `${dbCollections.PRECOMPANIES}`
+            return `${dbCollections.PRECOMPANIES}`;
         case SCHEMA_TYPE.GLOBAL_CUSTOM_FIELDS:
-            return `${dbCollections.CUSTOM_FIELDS}`
+            return `${dbCollections.CUSTOM_FIELDS}`;
         case SCHEMA_TYPE.BUCKETS:
-            return `${dbCollections.BUCKETS}`
+            return `${dbCollections.BUCKETS}`;
         case SCHEMA_TYPE.GLOBALFILTER:
-            return `${dbCollections.GLOBALFILTER}`
+            return `${dbCollections.GLOBALFILTER}`;
         case SCHEMA_TYPE.USER_AUTH:
-            return `${dbCollections.USER_AUTH}`
+            return `${dbCollections.USER_AUTH}`;
         case SCHEMA_TYPE.RESET_ATTEMPT:
-            return `${dbCollections.RESET_ATTEMPT}`
+            return `${dbCollections.RESET_ATTEMPT}`;
         case SCHEMA_TYPE.SESSIONS:
-            return `${dbCollections.SESSIONS}`
+            return `${dbCollections.SESSIONS}`;
         case SCHEMA_TYPE.USERDASHBOARD:
-            return `${dbCollections.USERDASHBOARD}`
+            return `${dbCollections.USERDASHBOARD}`;
         case SCHEMA_TYPE.REFERCODE:
-            return `${dbCollections.REFERCODE}`    
+            return `${dbCollections.REFERCODE}`;
         case SCHEMA_TYPE.REFFERALMAPPING:
-            return `${dbCollections.REFFERALMAPPING}`   
+            return `${dbCollections.REFFERALMAPPING}`;
         case SCHEMA_TYPE.GLOBALSETTING:
-                return `${dbCollections.GLOBALSETTING}`
+            return `${dbCollections.GLOBALSETTING}`;
         case SCHEMA_TYPE.TAKE_NOTE:
-            return `${dbCollections.TAKE_NOTE}`
+            return `${dbCollections.TAKE_NOTE}`;
         case SCHEMA_TYPE.GROUP_CHAT:
-            return `${dbCollections.GROUP_CHAT}`
+            return `${dbCollections.GROUP_CHAT}`;
         case SCHEMA_TYPE.CHATS:
-            return `${dbCollections.CHATS}`
+            return `${dbCollections.CHATS}`;
         case SCHEMA_TYPE.STICKERS:
-            return `${dbCollections.STICKERS}`
+            return `${dbCollections.STICKERS}`;
         case SCHEMA_TYPE.STICKER_PACKS:
-            return `${dbCollections.STICKER_PACKS}`
+            return `${dbCollections.STICKER_PACKS}`;
         case SCHEMA_TYPE.NOTES:
-            return `${dbCollections.NOTES}`
+            return `${dbCollections.NOTES}`;
         default:
-            return ""
+            return "";
     }
-}
+};
 
 /**
  * MongoDb CrudOpration Insert, Update, Delete
@@ -323,99 +327,110 @@ exports.tableType = (type) => {
 exports.MongoDbCrudOpration = (companyId, data, method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var res = await handleConnection(companyId)
+            var res = await handleConnection(companyId);
             if (res?.status) {
-                let { database } = res
+                let { database } = res;
                 if (data.type === undefined || data.data === undefined) {
-                    reject("Type and data is required in data")
+                    reject("Type and data is required in data");
                     return;
                 }
-                let table = this.tableType(data.type)
-                var myVariable = this.checkType(data.type)
-                if (method === 'save') {
+                let table = this.tableType(data.type);
+                var myVariable = this.checkType(data.type);
+                if (method === "save") {
                     const Model = database.model(table, myVariable, table);
                     const newDocument = new Model(data.data);
-                    newDocument.save().then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    });
-                }
-                else if (method == "find") {
-                    const model = database.model(table, myVariable, table)
-                    model[method].apply(model, data.data).then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    })
-                }
-                else {
-                    const model = database.model(table, myVariable, table)
-                    model[method].apply(model, data.data).then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    })
+                    newDocument
+                        .save()
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                } else if (method == "find") {
+                    const model = database.model(table, myVariable, table);
+                    model[method]
+                        .apply(model, data.data)
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                } else {
+                    const model = database.model(table, myVariable, table);
+                    model[method]
+                        .apply(model, data.data)
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
                 }
             } else {
-                reject({ message: res?.statusText, status: false })
+                reject({ message: res?.statusText, status: false });
             }
         } catch (error) {
-            reject(error)
+            reject(error);
         }
-    })
-}
+    });
+};
 exports.ChatMongoCrudOpration = (companyId, data, method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var res = await handleConnection(dbNames.CHAT)
+            var res = await handleConnection(dbNames.CHAT);
             if (res?.status) {
-                let { database } = res
+                let { database } = res;
                 if (data.type === undefined || data.data === undefined) {
-                    reject("Type and data is required in data")
+                    reject("Type and data is required in data");
                     return;
                 }
-                let table = this.tableType(data.type)
-                var myVariable = this.checkType(data.type)
-                if (method === 'save') {
+                let table = this.tableType(data.type);
+                var myVariable = this.checkType(data.type);
+                if (method === "save") {
                     const Model = database.model(table, myVariable, table);
                     const newDocument = new Model(data.data);
-                    newDocument.save().then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    });
-                }
-                else if (method == "find") {
-                    const model = database.model(table, myVariable, table)
-                    model[method].apply(model, data.data).then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    })
-                }
-                else {
-                    const model = database.model(table, myVariable, table)
-                    model[method].apply(model, data.data).then((res) => {
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    })
+                    newDocument
+                        .save()
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                } else if (method == "find") {
+                    const model = database.model(table, myVariable, table);
+                    model[method]
+                        .apply(model, data.data)
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                } else {
+                    const model = database.model(table, myVariable, table);
+                    model[method]
+                        .apply(model, data.data)
+                        .then((res) => {
+                            resolve(res);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
                 }
             } else {
-                reject({ message: res?.statusText, status: false })
+                reject({ message: res?.statusText, status: false });
             }
         } catch (error) {
-            reject(error)
+            reject(error);
         }
-    })
-}
-
-
-
+    });
+};
 
 /**
- * 
+ *
  * @param {*} id - Id which we want to check if it is valid mongo id
  * @returns - true or false if it is mongo id then true otherwise false
  */

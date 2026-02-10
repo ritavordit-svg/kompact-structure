@@ -148,6 +148,7 @@ exports.generateTokenV2Fun = (uid, refreshToken, cb) => {
         }
 
         mongoC.MongoDbCrudOpration(dbCollections.GLOBAL, object, "findOne").then(async (response) => {
+            console.log("response: ", response);            
             if (!(response && response._id)) {
                 cb({
                     status: false,
@@ -298,22 +299,21 @@ exports.insertAuthFun = async (reqData, cb) => {
             };
 
             mongoC.MongoDbCrudOpration(dbCollections.GLOBAL, updateobj, "updateOne").then(async () => {
-                // ✅ Sau khi tạo USER_AUTH xong, tạo USER tương ứng
-                // const userObj = {
-                //     type: dbCollections.USERS,
-                //     data: {
-                //         _id: resAuth._id, // Dùng cùng id để map auth <-> user
-                //         email: reqData.email,
-                //         name: reqData.name || reqData.email.split('@')[0],
-                //         isEmailVerified: false,
-                //         createdAt: new Date(),
-                //         updatedAt: new Date(),
-                //         role: reqData.role || 'user',
-                //         status: 'active'
-                //     }
-                // };
+                const userObj = {
+                    type: dbCollections.USERS,
+                    data: {
+                        _id: resAuth._id,
+                        email: reqData.email,
+                        name: reqData.name || reqData.email.split('@')[0],
+                        isEmailVerified: false,
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                        role: reqData.role || 'user',
+                        status: 'active'
+                    }
+                };
 
-                // await mongoC.MongoDbCrudOpration(dbCollections.GLOBAL, userObj, "save");
+                await mongoC.MongoDbCrudOpration(dbCollections.GLOBAL, userObj, "save");
 
                 cb({
                     status: true,
@@ -392,7 +392,6 @@ exports.verifyAuth = (reqData, cb) => {
         }
 
         mongoC.MongoDbCrudOpration(dbCollections.GLOBAL, obj, "findOne").then(async (resData) => {
-
             if (!(resData && resData._id)) {
                 cb({
                     status: false,

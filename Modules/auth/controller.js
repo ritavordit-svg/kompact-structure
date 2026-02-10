@@ -157,16 +157,16 @@ exports.generateTokenV2Fun = (uid, refreshToken, cb) => {
                 });
                 return;
             }
-            // if (!response.isEmailVerified) {
-            //     cb({
-            //         status: false,
-            //         isLogout: true,
-            //         isEmailVerified: false,
-            //         userData: response ?? null,
-            //         message: 'Email is not verified.',
-            //     });
-            //     return;
-            // }
+            if (!response.isEmailVerified) {
+                cb({
+                    status: false,
+                    isLogout: true,
+                    isEmailVerified: false,
+                    userData: response ?? null,
+                    message: 'Email is not verified.',
+                });
+                return;
+            }
             const companyIds = response.AssignCompany && response.AssignCompany.length ? response.AssignCompany : [];
             const token = await generateJWTToken({ uid: uid, companyIds: companyIds, refreshToken });
             cb({
